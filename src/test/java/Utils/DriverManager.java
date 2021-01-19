@@ -6,7 +6,8 @@ public abstract class DriverManager {
 
     protected WebDriver driver;
 
-    protected abstract void createDriver();
+    protected abstract void createDriverWindows();
+    protected abstract void createDriverLinux();
 
     public void quitDriver() {
         if (null != driver) {
@@ -15,9 +16,16 @@ public abstract class DriverManager {
         }
     }
 
-    public WebDriver getDriver() {
+    public WebDriver getDriverWindows() {
         if (null == driver) {
-            createDriver();
+            createDriverWindows();
+        }
+        return driver;
+    }
+
+    public WebDriver getDriverLinux() {
+        if (null == driver) {
+            createDriverLinux();
         }
         return driver;
     }

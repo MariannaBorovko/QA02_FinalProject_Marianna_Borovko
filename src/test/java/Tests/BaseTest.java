@@ -4,11 +4,11 @@ import Pages.MainPage;
 import Utils.DriverManager;
 import Utils.DriverManagerFactory;
 import Utils.DriverTypes;
-import Utils.OSTypes;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Parameters;
 
 public class BaseTest {
     DriverManager driverManager;
@@ -17,12 +17,17 @@ public class BaseTest {
 
     @BeforeTest
     public void getManagerTest() {
-        driverManager = DriverManagerFactory.getManager(DriverTypes.CHROME);
+        driverManager = DriverManagerFactory.getManager(DriverTypes.FIREFOX);
     }
 
     @BeforeMethod
-    public void setUp() {
-        driver = driverManager.getDriver();
+    @Parameters("os")
+    public void setUp(String os) {
+        if (os.equalsIgnoreCase("windows")) {
+            driver = driverManager.getDriverWindows();
+        } else {
+            driver = driverManager.getDriverLinux();
+        }
         mainPage = new MainPage(driver);
     }
 

@@ -17,7 +17,7 @@ public class BaseTest {
 
     @BeforeTest
     public void getManagerTest() {
-        driverManager = DriverManagerFactory.getManager(DriverTypes.FIREFOX);
+        driverManager = DriverManagerFactory.getManager(DriverTypes.CHROME);
     }
 
     @BeforeMethod

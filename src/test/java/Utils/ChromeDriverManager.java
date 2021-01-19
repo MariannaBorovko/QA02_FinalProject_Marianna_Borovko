@@ -14,5 +14,4 @@ public class ChromeDriverManager extends DriverManager {
         WebDriverManager.chromedriver().linux().setup();
         driver = new ChromeDriver();
     }
-
 }

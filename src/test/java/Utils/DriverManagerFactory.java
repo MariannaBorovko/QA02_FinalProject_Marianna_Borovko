@@ -1,11 +1,11 @@
 package Utils;
 
 public class DriverManagerFactory {
-    public static DriverManager getManager(DriverTypes type){
+    public static DriverManager getManager(DriverTypes type) {
 
         DriverManager driverManager;
 
-        switch (type){
+        switch (type) {
             case CHROME:
                 driverManager = new ChromeDriverManager();
                 break;

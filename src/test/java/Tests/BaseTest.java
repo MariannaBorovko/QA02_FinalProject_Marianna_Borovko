@@ -10,6 +10,8 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Parameters;
 
+import java.io.FileNotFoundException;
+
 public class BaseTest {
     DriverManager driverManager;
     WebDriver driver;
@@ -22,7 +24,7 @@ public class BaseTest {
 
     @BeforeMethod
     @Parameters("os")
-    public void setUp(String os) {
+    public void setUp(String os) throws FileNotFoundException {
         if (os.equalsIgnoreCase("windows")) {
             driver = driverManager.getDriverWindows();
         } else {

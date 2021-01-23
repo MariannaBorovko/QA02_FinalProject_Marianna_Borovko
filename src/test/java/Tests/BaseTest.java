@@ -11,6 +11,7 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Parameters;
 
 import java.io.FileNotFoundException;
+import java.io.IOException;
 
 public class BaseTest {
     DriverManager driverManager;
@@ -18,19 +19,22 @@ public class BaseTest {
     MainPage mainPage;
 
     @BeforeTest
-    public void getManagerTest() {
-        driverManager = DriverManagerFactory.getManager(DriverTypes.CHROME);
+    public void getManagerTest() throws IOException {
+        mainPage = new MainPage(driver);
+        driverManager = DriverManagerFactory.getManager(DriverTypes.getTypeByStringValue(mainPage.getBrowserName()));
     }
 
     @BeforeMethod
     @Parameters("os")
-    public void setUp(String os) throws FileNotFoundException {
+    public void setUp(String os) throws IOException {
+
         if (os.equalsIgnoreCase("windows")) {
             driver = driverManager.getDriverWindows();
         } else {
             driver = driverManager.getDriverLinux();
         }
         mainPage = new MainPage(driver);
+        driverManager = DriverManagerFactory.getManager(DriverTypes.getTypeByStringValue(mainPage.getBrowserName()));
     }
 
     @AfterMethod(alwaysRun = true)

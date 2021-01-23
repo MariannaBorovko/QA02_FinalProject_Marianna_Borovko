@@ -1,5 +1,6 @@
 package Pages;
 
+import Utils.DriverTypes;
 import org.openqa.selenium.WebDriver;
 
 import java.io.FileInputStream;
@@ -24,5 +25,11 @@ public class BasePage {
 
     public String getCurrentUrl() {
         return driver.getCurrentUrl();
+    }
+
+    public String getBrowserName() throws IOException {
+        properties.load(propertiesPath);
+        String browser = properties.getProperty("data.browser");
+        return browser;
     }
 }

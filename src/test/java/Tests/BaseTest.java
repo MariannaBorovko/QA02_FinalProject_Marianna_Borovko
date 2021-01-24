@@ -1,5 +1,6 @@
 package Tests;
 
+import Pages.BasePage;
 import Pages.MainPage;
 import Utils.DriverManager;
 import Utils.DriverManagerFactory;
@@ -8,33 +9,29 @@ import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
-import org.testng.annotations.Parameters;
 
-import java.io.FileNotFoundException;
 import java.io.IOException;
 
 public class BaseTest {
     DriverManager driverManager;
     WebDriver driver;
     MainPage mainPage;
+    BasePage basePage;
 
     @BeforeTest
     public void getManagerTest() throws IOException {
-        mainPage = new MainPage(driver);
-        driverManager = DriverManagerFactory.getManager(DriverTypes.getTypeByStringValue(mainPage.getBrowserName()));
+        basePage = new BasePage(driver);
+        driverManager = basePage.getDriverManagerFactory();
     }
 
     @BeforeMethod
-    @Parameters("os")
-    public void setUp(String os) throws IOException {
-
-        if (os.equalsIgnoreCase("windows")) {
+    public void setUp() throws IOException {
+        if (basePage.getOS().contains("Win")) {
             driver = driverManager.getDriverWindows();
         } else {
             driver = driverManager.getDriverLinux();
         }
         mainPage = new MainPage(driver);
-        driverManager = DriverManagerFactory.getManager(DriverTypes.getTypeByStringValue(mainPage.getBrowserName()));
     }
 
     @AfterMethod(alwaysRun = true)

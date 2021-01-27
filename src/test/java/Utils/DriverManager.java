@@ -2,6 +2,8 @@ package Utils;
 
 import org.openqa.selenium.WebDriver;
 
+import java.io.IOException;
+
 public abstract class DriverManager {
 
     protected WebDriver driver;
@@ -29,4 +31,5 @@ public abstract class DriverManager {
         }
         return driver;
     }
+
 }

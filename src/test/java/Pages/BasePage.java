@@ -1,38 +1,31 @@
 package Pages;
 
+import Utils.PropertyManager;
 import Utils.DriverManager;
 import Utils.DriverManagerFactory;
 import Utils.DriverTypes;
 import org.openqa.selenium.WebDriver;
 
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.util.Properties;
 
 public class BasePage {
     WebDriver driver;
     DriverManager driverManager;
-    Properties properties = new Properties();
-    FileInputStream propertiesPath = new FileInputStream("./src/test/resources/data.properties");
 
     public BasePage(WebDriver driver) throws FileNotFoundException {
         this.driver = driver;
     }
 
     public void openPage() throws IOException {
-        properties.load(propertiesPath);
-        String webSiteUrl = properties.getProperty("data.url");
+        String webSiteUrl = PropertyManager.getInstance().getURL();
         driver.get(webSiteUrl);
     }
-
     public String getCurrentUrl() {
         return driver.getCurrentUrl();
     }
-
     public String getBrowserName() throws IOException {
-        properties.load(propertiesPath);
-        String browser = properties.getProperty("data.browser");
+        String browser = PropertyManager.getInstance().getBrowser();
         return browser;
     }
 

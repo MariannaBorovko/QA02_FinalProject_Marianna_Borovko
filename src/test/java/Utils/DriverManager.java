@@ -9,6 +9,7 @@ public abstract class DriverManager {
     protected WebDriver driver;
 
     protected abstract void createDriverWindows();
+
     protected abstract void createDriverLinux();
 
     public void quitDriver() {
@@ -32,4 +33,13 @@ public abstract class DriverManager {
         return driver;
     }
 
+    public String getOS() {
+        String os = System.getenv("OS");
+        return os;
+    }
+
+    public static String getBrowserName() throws IOException {
+        String browser = PropertyManager.getInstance().getBrowser();
+        return browser;
+    }
 }

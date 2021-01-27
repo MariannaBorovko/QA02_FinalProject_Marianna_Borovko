@@ -3,8 +3,6 @@ package Tests;
 import Pages.BasePage;
 import Pages.MainPage;
 import Utils.DriverManager;
-import Utils.DriverManagerFactory;
-import Utils.DriverTypes;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -26,7 +24,7 @@ public class BaseTest {
 
     @BeforeMethod
     public void setUp() throws IOException {
-        if (basePage.getOS().contains("Win")) {
+        if (driverManager.getOS().contains("Win")) {
             driver = driverManager.getDriverWindows();
         } else {
             driver = driverManager.getDriverLinux();

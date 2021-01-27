@@ -5,7 +5,6 @@ import Utils.DriverManager;
 import Utils.DriverManagerFactory;
 import Utils.DriverTypes;
 import org.openqa.selenium.WebDriver;
-
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
@@ -21,21 +20,13 @@ public class BasePage {
         String webSiteUrl = PropertyManager.getInstance().getURL();
         driver.get(webSiteUrl);
     }
+
     public String getCurrentUrl() {
         return driver.getCurrentUrl();
     }
-    public String getBrowserName() throws IOException {
-        String browser = PropertyManager.getInstance().getBrowser();
-        return browser;
-    }
-
-    public String getOS() {
-        String os = System.getenv("OS");
-        return os;
-    }
 
     public DriverManager getDriverManagerFactory() throws IOException {
-        driverManager = DriverManagerFactory.getManager(DriverTypes.getTypeByStringValue(getBrowserName()));
+        driverManager = DriverManagerFactory.getManager(DriverTypes.getTypeByStringValue(DriverManager.getBrowserName()));
         return driverManager;
     }
 }

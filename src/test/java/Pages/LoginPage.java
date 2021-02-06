@@ -8,6 +8,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.List;
 
 public class LoginPage extends MainPage{
@@ -47,5 +48,12 @@ public class LoginPage extends MainPage{
 
     public void waitForLogin(){
         getWebDriverWait().until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//div[@class = 'navbar__user']")));
+    }
+    public void login() throws IOException {
+        openPage();
+        openLoginPage();
+        enterEmail();
+        enterPassword();
+        submitCreds();
     }
 }

@@ -1,9 +1,6 @@
 package Tests;
 
-import Pages.BasePage;
-import Pages.LoginPage;
-import Pages.MainPage;
-import Pages.NewsPage;
+import Pages.*;
 import Utils.DriverManager;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterMethod;
@@ -19,6 +16,7 @@ public class BaseTest {
     BasePage basePage;
     LoginPage loginPage;
     NewsPage newsPage;
+    UserProfilePage userProfilePage;
 
     @BeforeTest
     public void getManagerTest() throws IOException {
@@ -36,6 +34,7 @@ public class BaseTest {
         mainPage = new MainPage(driver);
         loginPage = new LoginPage(driver);
         newsPage = new NewsPage(driver);
+        userProfilePage = new UserProfilePage(driver);
     }
 
     @AfterMethod(alwaysRun = true)

@@ -5,7 +5,7 @@ import org.testng.annotations.Test;
 
 import java.io.IOException;
 
-public class MainTests extends BaseTest {
+public class MainPageTests extends BaseTest {
     @Test
     public void isWebSiteOpened() throws IOException {
         mainPage.openPage();

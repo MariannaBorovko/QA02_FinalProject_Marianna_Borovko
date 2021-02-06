@@ -11,6 +11,8 @@ public class PropertyManager {
             "./src/test/resources/data.properties";
     private static String url;
     private static String browser;
+    private static String email;
+    private static String password;
 
     public static PropertyManager getInstance() {
         if (instance == null) {
@@ -32,6 +34,8 @@ public class PropertyManager {
 
         url = prop.getProperty("url");
         browser = prop.getProperty("browser");
+        email = prop.getProperty("email");
+        password = prop.getProperty("password");
     }
 
     public String getURL() {
@@ -40,5 +44,13 @@ public class PropertyManager {
 
     public String getBrowser() {
         return browser;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getPassword() {
+        return password;
     }
 }

@@ -1,7 +1,9 @@
 package Tests;
 
 import Pages.BasePage;
+import Pages.LoginPage;
 import Pages.MainPage;
+import Pages.NewsPage;
 import Utils.DriverManager;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterMethod;
@@ -15,6 +17,8 @@ public class BaseTest {
     WebDriver driver;
     MainPage mainPage;
     BasePage basePage;
+    LoginPage loginPage;
+    NewsPage newsPage;
 
     @BeforeTest
     public void getManagerTest() throws IOException {
@@ -30,6 +34,8 @@ public class BaseTest {
             driver = driverManager.getDriverLinux();
         }
         mainPage = new MainPage(driver);
+        loginPage = new LoginPage(driver);
+        newsPage = new NewsPage(driver);
     }
 
     @AfterMethod(alwaysRun = true)

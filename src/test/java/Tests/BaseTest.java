@@ -17,6 +17,7 @@ public class BaseTest {
     LoginPage loginPage;
     NewsPage newsPage;
     UserProfilePage userProfilePage;
+    JobsPage jobsPage;
 
     @BeforeTest
     public void getManagerTest() throws IOException {
@@ -35,6 +36,7 @@ public class BaseTest {
         loginPage = new LoginPage(driver);
         newsPage = new NewsPage(driver);
         userProfilePage = new UserProfilePage(driver);
+        jobsPage = new JobsPage(driver);
     }
 
     @AfterMethod(alwaysRun = true)

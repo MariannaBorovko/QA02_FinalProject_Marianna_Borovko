@@ -18,7 +18,7 @@ public class BasePage {
         this.driver = driver;
     }
 
-    public void openPage() throws IOException {
+    public void openPage() {
         String webSiteUrl = PropertyManager.getInstance().getURL();
         driver.get(webSiteUrl);
     }
@@ -32,7 +32,7 @@ public class BasePage {
         return driverManager;
     }
 
-    public WebDriverWait getWebDriverWait(){
+    public WebDriverWait getWebDriverWait() {
         WebDriverWait wait = new WebDriverWait(driver, 10);
         return wait;
     }

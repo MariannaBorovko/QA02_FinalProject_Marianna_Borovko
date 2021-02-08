@@ -1,13 +1,14 @@
 package Pages;
 
+import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import java.io.FileNotFoundException;
-import java.io.IOException;
 
+@Log4j2
 public class MainPage extends BasePage {
     @FindBy(xpath = "//a[contains(text(),\'Вход\')]")
     WebElement loginPageButton;
@@ -39,42 +40,52 @@ public class MainPage extends BasePage {
     }
 
     public void openLoginPage() {
+        log.info("Click login button");
         loginPageButton.click();
     }
 
     public void openUserProfile() {
+        log.info("Click user profile button");
         userProfileButton.click();
     }
 
     public void openNewsPage() {
+        log.info("Open news menu item");
         newsButton.click();
     }
 
     public void openJobsPage() {
+        log.info("Open jobs menu item");
         jobsButton.click();
     }
 
     public void openEventsPage() {
+        log.info("Open events menu item");
         eventsButton.click();
     }
 
     public void openSalariesPage() {
+        log.info("Open salaries menu item");
         salariesButton.click();
     }
 
     public void openCompaniesPage() {
+        log.info("Open companies menu item");
         companiesButton.click();
     }
 
     public void openBlogsPage() {
+        log.info("Open blog menu item");
         blogsButton.click();
     }
 
     public void openMainNews() {
+        log.info("Open main news");
         mainNewsButton.click();
     }
 
-    public String getTitleMainNews() throws IOException {
+    public String getTitleMainNews(){
+        log.info("Get main news title");
         openPage();
         return mainNewsTitle.getText();
     }

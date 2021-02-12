@@ -1,6 +1,6 @@
-package Pages;
+package pages;
 
-import Utils.PropertyManager;
+import utils.PropertyManager;
 import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;

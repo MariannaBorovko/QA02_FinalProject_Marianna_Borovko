@@ -1,4 +1,4 @@
-package Utils;
+package utils;
 
 public class DriverManagerFactory {
     public static DriverManager getManager(DriverTypes type) {

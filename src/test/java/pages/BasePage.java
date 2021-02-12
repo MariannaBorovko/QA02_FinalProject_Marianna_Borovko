@@ -1,9 +1,9 @@
-package Pages;
+package pages;
 
-import Utils.DriverManager;
-import Utils.DriverManagerFactory;
-import Utils.DriverTypes;
-import Utils.PropertyManager;
+import utils.DriverManager;
+import utils.DriverManagerFactory;
+import utils.DriverTypes;
+import utils.PropertyManager;
 import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;

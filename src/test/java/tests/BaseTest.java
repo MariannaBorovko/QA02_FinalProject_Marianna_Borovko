@@ -1,11 +1,11 @@
-package Tests;
+package tests;
 
-import Pages.*;
-import Pages.BasePage;
-import Pages.LoginPage;
-import Pages.MainPage;
-import Utils.DriverManager;
-import Utils.Listener;
+import pages.*;
+import pages.BasePage;
+import pages.LoginPage;
+import pages.MainPage;
+import utils.DriverManager;
+import utils.Listener;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;

@@ -1,6 +1,6 @@
-package Utils;
+package utils;
 
-import Tests.BaseTest;
+import tests.BaseTest;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;

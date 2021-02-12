@@ -12,7 +12,7 @@ import java.io.FileNotFoundException;
 import java.util.List;
 
 @Log4j2
-public class LoginPage extends MainPage{
+public class LoginPage extends MainPage {
     @FindBy(xpath = "//input[@name='email']")
     WebElement emailField;
     @FindBy(xpath = "//input[@name='password']")
@@ -24,13 +24,13 @@ public class LoginPage extends MainPage{
         super(driver);
     }
 
-    public void enterEmail(){
+    public void enterEmail() {
         log.info("Fill email field with valid data");
         String email = PropertyManager.getInstance().getEmail();
         emailField.sendKeys(email);
     }
 
-    public void enterPassword(){
+    public void enterPassword() {
         log.info("Fill password field with valid data");
         String password = PropertyManager.getInstance().getPassword();
         passwordField.sendKeys(password);
@@ -41,6 +41,7 @@ public class LoginPage extends MainPage{
         log.info("Click submit button");
         submitButton.click();
     }
+
     public boolean isUserLoggedSuccessfully() {
         log.info("Login with valid data");
         List<WebElement> navbarUser = driver.findElements(By.xpath("//div[@class='navbar__user']"));
@@ -51,11 +52,12 @@ public class LoginPage extends MainPage{
         }
     }
 
-    public void waitForLogin(){
+    public void waitForLogin() {
         log.info("waitForLogin method is started");
         getWebDriverWait().until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//div[@class = 'navbar__user']")));
     }
-    public void login(){
+
+    public void login() {
         log.info("login method is started");
         openPage();
         openLoginPage();

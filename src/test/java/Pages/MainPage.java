@@ -12,7 +12,6 @@ import java.io.FileNotFoundException;
 public class MainPage extends BasePage {
     @FindBy(xpath = "//a[contains(text(),\'Вход\')]")
     WebElement loginPageButton;
-
     @FindBy(xpath = "//a[@class='navbar__user-name']")
     WebElement userProfileButton;
 
@@ -84,7 +83,7 @@ public class MainPage extends BasePage {
         mainNewsButton.click();
     }
 
-    public String getTitleMainNews(){
+    public String getTitleMainNews() {
         log.info("Get main news title");
         openPage();
         return mainNewsTitle.getText();

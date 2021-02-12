@@ -36,7 +36,8 @@ public class LoginPage extends MainPage{
         passwordField.sendKeys(password);
     }
 
-    public void submitCreds() {
+    public void clickSubmitButton() {
+        waitForLogin();
         log.info("Click submit button");
         submitButton.click();
     }
@@ -60,6 +61,6 @@ public class LoginPage extends MainPage{
         openLoginPage();
         enterEmail();
         enterPassword();
-        submitCreds();
+        clickSubmitButton();
     }
 }

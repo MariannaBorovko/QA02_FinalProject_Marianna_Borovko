@@ -37,19 +37,9 @@ public class JobsPage extends MainPage {
         qaManualPositionButton.click();
     }
 
-    public boolean isWishPopupAppeared() {
-        log.info("Check if wish popup appeared");
-        return wishPopup.isDisplayed();
-    }
-
     public void closeWishPopup() {
-        if (isWishPopupAppeared() == true) {
-            log.info("Close Wish Popup");
-            closeWishPopupButton.click();
-        }
-        else{
-            log.info("WishPopup isn't appeared");
-        }
+        log.info("Close Wish Popup");
+        closeWishPopupButton.click();
     }
 
     public boolean isListOfChosenPositionsEmpty() {
@@ -82,16 +72,18 @@ public class JobsPage extends MainPage {
     public boolean isOpenedVacancyTitleIsCorrect() {
         log.info("Check title of active vacancy method is started");
         if (isVacancyContainerPresent() == true) {
-            String a = vacancyContainerTitle.getText() + " ";
-            String b = "Вакансия " + activeVacancyTitle.getText();
-            String c = driver
-                    .findElement(By.xpath("//div[@class ='vacancies-list-item premium-vacancy vacancies-list-item--active']//div[@class='premium-vacancy__title']//span[@class='premium-vacancy__label']"))
+            String containerTitleText = vacancyContainerTitle.getText();
+            String vacancyTitleText = "Вакансия " + activeVacancyTitle.getText();
+            String priceFromTitle = activeVacancyTitle
+                    .findElement(By.xpath("//span[@class='premium-vacancy__label']"))
                     .getText();
-            b = b.replace(c, "");
-            if (a.equals(b)) {
+            vacancyTitleText = vacancyTitleText.replace(priceFromTitle, "");
+            if (containerTitleText.equals(vacancyTitleText.trim())) {
                 log.info("Active vacancy title corresponds to vacancy container title");
                 return true;
             } else {
+                log.debug("containerTitleText = [" + containerTitleText + "]");
+                log.debug("vacancyTitleText = [" + vacancyTitleText + "]");
                 log.error("Active vacancy title doesn't correspond to vacancy container title");
                 return false;
             }

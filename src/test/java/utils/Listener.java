@@ -1,5 +1,6 @@
 package utils;
 
+import lombok.extern.log4j.Log4j2;
 import tests.BaseTest;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
@@ -12,6 +13,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.Calendar;
 
+@Log4j2
 public class Listener implements ITestListener {
 
     @Override
@@ -26,6 +28,7 @@ public class Listener implements ITestListener {
             try {
                 FileUtils.copyFile(srcFile, destFile);
             } catch (IOException e) {
+                log.error(e.getMessage(), e);
                 e.printStackTrace();
             }
         }

@@ -3,25 +3,23 @@ package Tests;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import java.io.IOException;
-
 public class NewsTests extends BaseTest{
     @Test
-    public void isArticleTitleCorrectTest() throws IOException {
+    public void isArticleTitleCorrectTest(){
         mainPage.openPage();
         mainPage.openMainNews();
         Assert.assertEquals(newsPage.getArticleTitle(), mainPage.getTitleMainNews());
     }
 
     @Test
-    public void isNewsPresentTest() throws IOException {
+    public void isNewsPresentTest(){
         mainPage.openPage();
         mainPage.openNewsPage();
         Assert.assertTrue(newsPage.isNewsPresent());
     }
 
     @Test
-    public void isNewsOpened() throws IOException {
+    public void isNewsOpened(){
         mainPage.openPage();
         mainPage.openNewsPage();
         newsPage.scrollToNews();

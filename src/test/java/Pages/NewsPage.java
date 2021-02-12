@@ -8,7 +8,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Locatable;
 import org.openqa.selenium.support.FindBy;
 
-import java.io.FileNotFoundException;
 import java.util.List;
 
 @Log4j2
@@ -18,7 +17,7 @@ public class NewsPage extends MainPage{
     @FindBy(xpath = "//div[@class='card card_media']")
     List<WebElement> news;
 
-    public NewsPage(WebDriver driver) throws FileNotFoundException {
+    public NewsPage(WebDriver driver){
         super(driver);
     }
     public String getArticleTitle(){

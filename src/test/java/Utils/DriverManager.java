@@ -2,8 +2,6 @@ package Utils;
 
 import org.openqa.selenium.WebDriver;
 
-import java.io.IOException;
-
 public abstract class DriverManager {
 
     protected WebDriver driver;
@@ -38,7 +36,7 @@ public abstract class DriverManager {
         return os;
     }
 
-    public static String getBrowserName() throws IOException {
+    public static String getBrowserName(){
         String browser = PropertyManager.getInstance().getBrowser();
         return browser;
     }

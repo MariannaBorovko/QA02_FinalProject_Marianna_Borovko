@@ -25,7 +25,7 @@ public class BaseTest {
     JobsPage jobsPage;
 
     @BeforeTest
-    public void getManagerTest() throws IOException {
+    public void getManagerTest(){
         basePage = new BasePage(driver);
         driverManager = basePage.getDriverManagerFactory();
     }

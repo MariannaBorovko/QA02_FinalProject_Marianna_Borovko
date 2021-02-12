@@ -6,11 +6,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-import java.io.FileNotFoundException;
-
 @Log4j2
 public class MainPage extends BasePage {
-    @FindBy(xpath = "//a[contains(text(),\'Вход\')]")
+    @FindBy(xpath = "//a[contains(text(),'Вход')]")
     WebElement loginPageButton;
     @FindBy(xpath = "//a[@class='navbar__user-name']")
     WebElement userProfileButton;
@@ -33,7 +31,7 @@ public class MainPage extends BasePage {
     @FindBy(xpath = "//div[@class='cards-grid__item cards-grid__item_1']//div[@class='card__title card__title_text-crop']")
     WebElement mainNewsTitle;
 
-    public MainPage(WebDriver driver) throws FileNotFoundException {
+    public MainPage(WebDriver driver){
         super(driver);
         PageFactory.initElements(driver, this);
     }

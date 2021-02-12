@@ -3,12 +3,10 @@ package Tests;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import java.io.IOException;
-
 public class JobsTests extends BaseTest{
 
     @Test
-    public void isFilterAppearedAfterChoiceOfPosition() throws IOException {
+    public void isFilterAppearedAfterChoiceOfPosition(){
         mainPage.openPage();
         mainPage.openJobsPage();
         jobsPage.closeWishPopup();

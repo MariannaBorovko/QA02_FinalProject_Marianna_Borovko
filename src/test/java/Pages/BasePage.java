@@ -8,18 +8,13 @@ import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.io.FileNotFoundException;
-import java.io.IOException;
-
 @Log4j2
 
 public class BasePage {
     WebDriver driver;
     DriverManager driverManager;
 
-
-
-    public BasePage(WebDriver driver) throws FileNotFoundException {
+    public BasePage(WebDriver driver){
         this.driver = driver;
     }
 
@@ -33,7 +28,7 @@ public class BasePage {
         return driver.getCurrentUrl();
     }
 
-    public DriverManager getDriverManagerFactory() throws IOException {
+    public DriverManager getDriverManagerFactory(){
         driverManager = DriverManagerFactory.getManager(DriverTypes.getTypeByStringValue(DriverManager.getBrowserName()));
         return driverManager;
     }

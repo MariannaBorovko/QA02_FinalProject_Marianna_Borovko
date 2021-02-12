@@ -13,8 +13,6 @@ import java.util.List;
 public class JobsPage extends MainPage {
     @FindBy(xpath = "//label[@for='filter_specialization_title_qa_manual']")
     WebElement qaManualPositionButton;
-    @FindBy(xpath = "//div[@class='wishes-popup__content']")
-    WebElement wishPopup;
     @FindBy(xpath = "//button[@class='wishes-popup__button-close wishes-popup__button-close_icon']")
     WebElement closeWishPopupButton;
     @FindBy(xpath = "//span[@class='vacancies-list__filter-tag__text']")

@@ -3,11 +3,9 @@ package Tests;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import java.io.IOException;
-
 public class UserProfileTests extends BaseTest{
     @Test
-    public void logoutTest() throws IOException {
+    public void logoutTest(){
         loginPage.login();
         mainPage.openUserProfile();
         userProfilePage.lougout();

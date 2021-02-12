@@ -3,11 +3,9 @@ package Tests;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import java.io.IOException;
-
 public class LoginTests extends BaseTest {
     @Test
-    public void successLoginTest() throws IOException {
+    public void successLoginTest(){
         mainPage.openPage();
         mainPage.openLoginPage();
         loginPage.enterEmail();

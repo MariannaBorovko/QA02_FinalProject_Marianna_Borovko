@@ -6,7 +6,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-import java.io.FileNotFoundException;
 import java.util.List;
 
 @Log4j2
@@ -26,7 +25,7 @@ public class JobsPage extends MainPage {
     @FindBy(xpath = "//div[@class ='vacancies-list-item premium-vacancy vacancies-list-item--active']//div[@class='premium-vacancy__title']")
     WebElement activeVacancyTitle;
 
-    public JobsPage(WebDriver driver) throws FileNotFoundException {
+    public JobsPage(WebDriver driver){
         super(driver);
     }
 

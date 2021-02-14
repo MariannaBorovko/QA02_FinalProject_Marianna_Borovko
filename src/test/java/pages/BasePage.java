@@ -14,7 +14,7 @@ public class BasePage {
     WebDriver driver;
     DriverManager driverManager;
 
-    public BasePage(WebDriver driver){
+    public BasePage(WebDriver driver) {
         this.driver = driver;
     }
 
@@ -28,7 +28,7 @@ public class BasePage {
         return driver.getCurrentUrl();
     }
 
-    public DriverManager getDriverManagerFactory(){
+    public DriverManager getDriverManagerFactory() {
         driverManager = DriverManagerFactory.getManager(DriverTypes.getTypeByStringValue(DriverManager.getBrowserName()));
         return driverManager;
     }

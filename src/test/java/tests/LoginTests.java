@@ -5,7 +5,7 @@ import org.testng.annotations.Test;
 
 public class LoginTests extends BaseTest {
     @Test
-    public void successLoginTest(){
+    public void successLoginTest() {
         mainPage.openPage();
         mainPage.openLoginPage();
         loginPage.enterEmail();

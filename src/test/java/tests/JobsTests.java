@@ -3,10 +3,10 @@ package tests;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class JobsTests extends BaseTest{
+public class JobsTests extends BaseTest {
 
     @Test
-    public void isFilterAppearedAfterChoiceOfPosition(){
+    public void isFilterAppearedAfterChoiceOfPosition() {
         mainPage.openPage();
         mainPage.openJobsPage();
         jobsPage.closeWishPopup();
@@ -15,7 +15,7 @@ public class JobsTests extends BaseTest{
     }
 
     @Test
-    public void isPremiumVacancyOpened(){
+    public void isPremiumVacancyOpened() {
         mainPage.openPage();
         mainPage.openJobsPage();
         jobsPage.closeWishPopup();
@@ -23,5 +23,4 @@ public class JobsTests extends BaseTest{
         Assert.assertTrue(jobsPage.isOpenedVacancyTitleIsCorrect());
 
     }
-
 }

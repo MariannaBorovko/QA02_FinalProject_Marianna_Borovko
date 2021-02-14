@@ -11,43 +11,43 @@ import org.openqa.selenium.support.FindBy;
 import java.util.List;
 
 @Log4j2
-public class NewsPage extends MainPage{
+public class NewsPage extends MainPage {
     @FindBy(xpath = "//div[@class='article__container']//h1")
     WebElement articleTitle;
     @FindBy(xpath = "//div[@class='card card_media']")
     List<WebElement> news;
 
-    public NewsPage(WebDriver driver){
+    public NewsPage(WebDriver driver) {
         super(driver);
     }
-    public String getArticleTitle(){
+
+    public String getArticleTitle() {
         return articleTitle.getText();
     }
 
-    public boolean isNewsPresent(){
-        if (news.size()>0){
+    public boolean isNewsPresent() {
+        if (news.size() > 0) {
             return true;
-        }
-        else{
+        } else {
             log.error("List of news is empty");
             return false;
         }
     }
 
-    public void openFirstNews(){
+    public void openFirstNews() {
         log.info("openFirstNews method started");
         news.get(0).click();
     }
 
-    public String getLinkFirstNews(){
+    public String getLinkFirstNews() {
         openPage();
         openNewsPage();
         return news.get(0).getAttribute("data-vr-contentbox-url");
     }
 
-    public void scrollToNews(){
+    public void scrollToNews() {
         Locatable firstNews = (Locatable) driver.findElement(By.xpath("//div[@class='card card_media']"));
         int y = firstNews.getCoordinates().onPage().getY();
-        ((JavascriptExecutor)driver).executeScript("window.scrollBy(0,"+y+");");
+        ((JavascriptExecutor) driver).executeScript("window.scrollBy(0," + y + ");");
     }
 }

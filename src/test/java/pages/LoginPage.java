@@ -1,14 +1,12 @@
 package pages;
 
-import utils.PropertyManager;
 import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.ui.ExpectedConditions;
+import utils.PropertyManager;
 
-import java.io.FileNotFoundException;
 import java.util.List;
 
 @Log4j2
@@ -20,7 +18,7 @@ public class LoginPage extends MainPage {
     @FindBy(xpath = "//span[text()='Войти']")
     WebElement submitButton;
 
-    public LoginPage(WebDriver driver) throws FileNotFoundException {
+    public LoginPage(WebDriver driver) {
         super(driver);
     }
 
@@ -37,7 +35,6 @@ public class LoginPage extends MainPage {
     }
 
     public void clickSubmitButton() {
-        waitForLogin();
         log.info("Click submit button");
         submitButton.click();
     }
@@ -50,11 +47,6 @@ public class LoginPage extends MainPage {
         } else {
             return false;
         }
-    }
-
-    public void waitForLogin() {
-        log.info("waitForLogin method is started");
-        getWebDriverWait().until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//div[@class = 'navbar__user']")));
     }
 
     public void login() {

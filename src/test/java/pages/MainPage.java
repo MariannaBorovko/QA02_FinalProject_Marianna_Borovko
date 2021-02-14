@@ -31,7 +31,7 @@ public class MainPage extends BasePage {
     @FindBy(xpath = "//div[@class='cards-grid__item cards-grid__item_1']//div[@class='card__title card__title_text-crop']")
     WebElement mainNewsTitle;
 
-    public MainPage(WebDriver driver){
+    public MainPage(WebDriver driver) {
         super(driver);
         PageFactory.initElements(driver, this);
     }

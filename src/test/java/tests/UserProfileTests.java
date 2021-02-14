@@ -1,11 +1,13 @@
 package tests;
 
+import lombok.extern.log4j.Log4j2;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class UserProfileTests extends BaseTest{
+@Log4j2
+public class UserProfileTests extends BaseTest {
     @Test
-    public void logoutTest(){
+    public void logoutTest() {
         loginPage.login();
         mainPage.openUserProfile();
         userProfilePage.lougout();

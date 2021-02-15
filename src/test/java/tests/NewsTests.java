@@ -7,21 +7,21 @@ import org.testng.annotations.Test;
 @Log4j2
 public class NewsTests extends BaseTest {
     @Test
-    public void isArticleTitleCorrectTest() {
+    public void mainNewsTitle() {
         mainPage.openPage();
         mainPage.openMainNews();
         Assert.assertEquals(newsPage.getArticleTitle(), mainPage.getTitleMainNews());
     }
 
     @Test
-    public void isNewsPresentTest() {
+    public void newsAbilityInList() {
         mainPage.openPage();
         mainPage.openNewsPage();
         Assert.assertTrue(newsPage.isNewsPresent());
     }
 
     @Test
-    public void isNewsOpened() {
+    public void openFirstNews() {
         mainPage.openPage();
         mainPage.openNewsPage();
         newsPage.scrollToNews();

@@ -7,7 +7,7 @@ import org.testng.annotations.Test;
 @Log4j2
 public class UserProfileTests extends BaseTest {
     @Test
-    public void logoutTest() {
+    public void logOut() {
         loginPage.login();
         mainPage.openUserProfile();
         userProfilePage.lougout();

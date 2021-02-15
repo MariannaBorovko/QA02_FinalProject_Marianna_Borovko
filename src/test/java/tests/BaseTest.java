@@ -21,28 +21,30 @@ public class BaseTest {
 
     @BeforeMethod
     public void setUp() {
-        log.debug("1) BasePage driver");
+        log.error("1) BasePage driver");
         basePage = new BasePage(driver);
-        log.debug("2) DriverManagerFactory get");
+        log.error("2) DriverManagerFactory get");
         driverManager = basePage.getDriverManagerFactory();
-        log.debug("3) Start if");
+        log.error("3) Start if");
         if (driverManager.getOS().contains("Win")) {
-            log.debug("4) GetWindowsChromeDriver");
+            log.error("4) GetWindowsChromeDriver");
             driver = driverManager.getDriverWindows();
         } else {
-            log.debug("5) GetLinuxChromeDriver");
+            log.error("5) GetLinuxChromeDriver");
             driver = driverManager.getDriverLinux();
         }
-        log.debug("6) MainPage");
+        log.error("6) MainPage");
         mainPage = new MainPage(driver);
-        log.debug("7) LoginPage");
+        log.error("7) LoginPage");
         loginPage = new LoginPage(driver);
-        log.debug("8) NewsPage");
+        log.error("8) NewsPage");
         newsPage = new NewsPage(driver);
-        log.debug("9) MainPage");
+        log.error("9) MainPage");
         userProfilePage = new UserProfilePage(driver);
-        log.debug("10) JobsPage");
+        log.error("10) JobsPage");
         jobsPage = new JobsPage(driver);
+        log.error(" ");
+
     }
 
     @AfterMethod(alwaysRun = true)

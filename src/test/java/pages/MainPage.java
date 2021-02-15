@@ -13,9 +13,9 @@ public class MainPage extends BasePage {
     @FindBy(xpath = "//a[@class='navbar__user-name']")
     WebElement userProfileButton;
 
-    @FindBy(xpath = "//nav[@class='navbar__nav navbar__nav_desktop']//a[text()='Новости']")
+    @FindBy(xpath = "//nav[@class = 'navbar__nav navbar__nav_desktop']//a[contains(text(),'Новости')]")
     WebElement newsButton;
-    @FindBy(xpath = "//nav[@class='navbar__nav navbar__nav_desktop']//a[text()='Вакансии']")
+    @FindBy(xpath = "//nav[@class='navbar__nav navbar__nav_desktop']//a[contains(text(),'Вакансии')]")
     WebElement jobsButton;
     @FindBy(xpath = "//nav[@class='navbar__nav navbar__nav_desktop']//a[text()='События']")
     WebElement eventsButton;

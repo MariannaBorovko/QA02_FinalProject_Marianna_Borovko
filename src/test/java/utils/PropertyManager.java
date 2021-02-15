@@ -15,8 +15,8 @@ public class PropertyManager {
     private static String password;
 
     public static PropertyManager getInstance() {
+        synchronized (lock) {
         if (instance == null) {
-            synchronized (lock) {
                 instance = new PropertyManager();
                 instance.loadData();
             }

@@ -19,8 +19,10 @@ public class BasePage {
     }
 
     public void openPage() {
-        log.info("+++++++OpenPage+++++++++");
+        log.error("+++++++OpenPage+++++++++");
         String webSiteUrl = PropertyManager.getInstance().getURL();
+       log.error("driver.getURL");
+       log.error("driver" + driver + "URL" + webSiteUrl);
         driver.get(webSiteUrl);
     }
 

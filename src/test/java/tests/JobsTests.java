@@ -6,7 +6,7 @@ import org.testng.annotations.Test;
 public class JobsTests extends BaseTest {
 
     @Test
-    public void isFilterAppearedAfterChoiceOfPosition() {
+    public void filterAbilityAfterPositionChoice() {
         mainPage.openPage();
         mainPage.openJobsPage();
         jobsPage.closeWishPopup();
@@ -15,7 +15,7 @@ public class JobsTests extends BaseTest {
     }
 
     @Test
-    public void isPremiumVacancyOpened() {
+    public void openPremiumVacancy() {
         mainPage.openPage();
         mainPage.openJobsPage();
         jobsPage.closeWishPopup();

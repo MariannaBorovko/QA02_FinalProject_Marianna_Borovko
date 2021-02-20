@@ -9,7 +9,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 @Log4j2
-
 public class BasePage {
     WebDriver driver;
     DriverManager driverManager;
@@ -21,8 +20,8 @@ public class BasePage {
     public void openPage() {
         log.error("+++++++OpenPage+++++++++");
         String webSiteUrl = PropertyManager.getInstance().getURL();
-       log.error("driver.getURL");
-       log.error("driver" + driver + "URL" + webSiteUrl);
+        log.error("driver.getURL");
+        log.error("driver" + driver + "URL" + webSiteUrl);
         driver.get(webSiteUrl);
     }
 

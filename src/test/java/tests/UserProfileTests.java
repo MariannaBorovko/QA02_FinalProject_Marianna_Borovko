@@ -13,4 +13,13 @@ public class UserProfileTests extends BaseTest {
         userProfilePage.lougout();
         Assert.assertEquals(userProfilePage.getCurrentUrl(), "https://id.dev.by/@/hello");
     }
+
+    @Test
+    public void changeFistName(){
+        loginPage.login();
+        mainPage.openUserProfile();
+        userProfilePage.setFirstName("NameTest1");
+        userProfilePage.saveChanges();
+        Assert.assertEquals(userProfilePage.getFirstName(),"NameTest1");
+    }
 }

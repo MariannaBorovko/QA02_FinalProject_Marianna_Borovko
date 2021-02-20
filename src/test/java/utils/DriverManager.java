@@ -31,8 +31,12 @@ public abstract class DriverManager {
         return driver;
     }
 
-    public String getOS() {
-        String os = System.getenv("OS");
+//    public String getOS() {
+//        String os = System.getenv("OS");
+//        return os;
+//    }
+        public String getOS() {
+        String os = "Windows";
         return os;
     }
 

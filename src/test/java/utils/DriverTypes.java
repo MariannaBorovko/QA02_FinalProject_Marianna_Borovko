@@ -21,6 +21,6 @@ public enum DriverTypes {
                 return driver;
             }
         }
-        throw new IllegalArgumentException("No enum found with value: [" + value + "]");
+        throw new IllegalArgumentException("Browser with name " + value + " isn't found.");
     }
 }

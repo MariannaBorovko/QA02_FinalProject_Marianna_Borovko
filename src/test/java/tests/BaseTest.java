@@ -5,6 +5,8 @@ import org.openqa.selenium.WebDriver;
 import org.testng.annotations.*;
 import pages.*;
 import utils.DriverManager;
+import utils.DriverManagerFactory;
+import utils.DriverTypes;
 import utils.Listener;
 
 @Log4j2
@@ -22,7 +24,8 @@ public class BaseTest {
     @BeforeMethod
     public void setUp() {
         basePage = new BasePage(driver);
-        driverManager = basePage.getDriverManagerFactory();
+        driverManager = DriverManagerFactory.getManager(DriverTypes.CHROME);
+//        driverManager = basePage.getDriverManagerFactory()
         if (driverManager.getOS().contains("Win")) {
             driver = driverManager.getDriverWindows();
         } else {

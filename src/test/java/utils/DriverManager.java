@@ -29,12 +29,8 @@ public abstract class DriverManager {
         return driver;
     }
 
-//    public String getOS() {
-//        return System.getenv("OS");
-//    }
-
-    public String getOS(){
-        return "Linux";
+    public String getOS() {
+        return System.getenv("OS");
     }
 
     public static String getBrowserName() {

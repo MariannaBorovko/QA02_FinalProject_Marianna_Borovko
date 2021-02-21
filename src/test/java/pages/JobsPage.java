@@ -22,10 +22,11 @@ public class JobsPage extends MainPage {
     WebElement vacancyContainer;
     @FindBy(xpath = "//div[@class ='vacancy__header__name']")
     WebElement vacancyContainerTitle;
-    @FindBy(xpath = "//div[@class ='vacancies-list-item premium-vacancy vacancies-list-item--active']//div[@class='premium-vacancy__title']")
+    @FindBy(xpath = "//div[@class ='vacancies-list-item premium-vacancy vacancies-list-item--active']"
+            + "//div[@class='premium-vacancy__title']")
     WebElement activeVacancyTitle;
 
-    public JobsPage(WebDriver driver){
+    public JobsPage(WebDriver driver) {
         super(driver);
     }
 
@@ -40,14 +41,8 @@ public class JobsPage extends MainPage {
     }
 
     public boolean isListOfChosenPositionsEmpty() {
-        log.info("Check if list with positions isn't empty");
-        if (filterPositions.isEmpty()) {
-            log.error("List of positions is empty");
-            return true;
-        } else {
-            log.info("List of positions isn't empty");
-            return false;
-        }
+        log.info("Check list items present");
+        return filterPositions.isEmpty();
     }
 
     public void openPremiumVacancy() {
@@ -57,36 +52,16 @@ public class JobsPage extends MainPage {
 
     public boolean isVacancyContainerPresent() {
         log.info("Vacancy container present check");
-        if (vacancyContainer.isDisplayed()) {
-            log.info("Vacancy container is appeared");
-            return true;
-        } else {
-            log.error("Vacancy container isn't appeared");
-            return false;
-        }
+        return vacancyContainer.isDisplayed();
     }
 
     public boolean isOpenedVacancyTitleIsCorrect() {
         log.info("Check title of active vacancy method is started");
-        if (isVacancyContainerPresent() == true) {
-            String containerTitleText = vacancyContainerTitle.getText();
-            String vacancyTitleText = "Вакансия " + activeVacancyTitle.getText();
-            String priceFromTitle = activeVacancyTitle
-                    .findElement(By.xpath("//span[@class='premium-vacancy__label']"))
-                    .getText();
-            vacancyTitleText = vacancyTitleText.replace(priceFromTitle, "");
-            if (containerTitleText.equals(vacancyTitleText.trim())) {
-                log.info("Active vacancy title corresponds to vacancy container title");
-                return true;
-            } else {
-                log.debug("containerTitleText = [" + containerTitleText + "]");
-                log.debug("vacancyTitleText = [" + vacancyTitleText + "]");
-                log.error("Active vacancy title doesn't correspond to vacancy container title");
-                return false;
-            }
-        } else {
-            log.error("Vacancy container isn't opened");
-            return false;
-        }
+        String vacancyTitleText = "Вакансия " + activeVacancyTitle.getText();
+        String priceFromTitle = activeVacancyTitle
+                .findElement(By.xpath("//span[@class='premium-vacancy__label']"))
+                .getText();
+        vacancyTitleText = vacancyTitleText.replace(priceFromTitle, "");
+        return vacancyContainerTitle.getText().equals(vacancyTitleText.trim());
     }
 }

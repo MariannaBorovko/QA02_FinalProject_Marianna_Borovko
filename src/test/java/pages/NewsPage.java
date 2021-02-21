@@ -22,30 +22,29 @@ public class NewsPage extends MainPage {
     }
 
     public String getArticleTitle() {
+        log.info("Get Article Title");
         return articleTitle.getText();
     }
 
     public boolean isNewsPresent() {
-        if (news.size() > 0) {
-            return true;
-        } else {
-            log.error("List of news is empty");
-            return false;
-        }
+        log.info("Check if news present");
+        return news.size() > 0;
     }
 
-    public void openFirstNews() {
+    public void openNews(int newsNumber) {
         log.info("openFirstNews method started");
-        news.get(0).click();
+        news.get(newsNumber - 1).click();
     }
 
-    public String getLinkFirstNews() {
+    public String getNewsLink(int newsNumber) {
+        log.info("Get news link");
         openPage();
         openNewsPage();
-        return news.get(0).getAttribute("data-vr-contentbox-url");
+        return news.get(newsNumber - 1).getAttribute("data-vr-contentbox-url");
     }
 
     public void scrollToNews() {
+        log.info("Scroll to news");
         Locatable firstNews = (Locatable) driver.findElement(By.xpath("//div[@class='card card_media']"));
         int y = firstNews.getCoordinates().onPage().getY();
         ((JavascriptExecutor) driver).executeScript("window.scrollBy(0," + y + ");");

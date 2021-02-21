@@ -42,11 +42,7 @@ public class LoginPage extends MainPage {
     public boolean isUserLoggedSuccessfully() {
         log.info("Login with valid data");
         List<WebElement> navbarUser = driver.findElements(By.xpath("//div[@class='navbar__user']"));
-        if (navbarUser.size() > 0) {
-            return true;
-        } else {
-            return false;
-        }
+        return navbarUser.size() > 0;
     }
 
     public void login() {

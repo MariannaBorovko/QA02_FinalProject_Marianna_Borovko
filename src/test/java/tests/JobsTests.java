@@ -15,12 +15,20 @@ public class JobsTests extends BaseTest {
     }
 
     @Test
-    public void openPremiumVacancy() {
+    public void openVacancyContainer() {
+        mainPage.openPage();
+        mainPage.openJobsPage();
+        jobsPage.closeWishPopup();
+        jobsPage.openPremiumVacancy();
+        Assert.assertTrue(jobsPage.isVacancyContainerPresent());
+    }
+
+    @Test
+    public void premiumVacancyTitle() {
         mainPage.openPage();
         mainPage.openJobsPage();
         jobsPage.closeWishPopup();
         jobsPage.openPremiumVacancy();
         Assert.assertTrue(jobsPage.isOpenedVacancyTitleIsCorrect());
-
     }
 }

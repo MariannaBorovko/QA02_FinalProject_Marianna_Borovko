@@ -24,58 +24,48 @@ public class UserProfilePage extends MainPage {
         super(driver);
     }
 
-    public void lougout() {
+    public void logOut() {
         log.info("Logout button click");
         logoutButton.click();
     }
 
     public boolean isFirstNameFieldEmpty() {
-        if (getFirstName().isEmpty()) {
-            return true;
-        } else {
-            return false;
-        }
+        return getFirstName().isEmpty();
     }
+
     public boolean isLastNameFieldEmpty() {
-        if (getLastName().isEmpty()) {
-            return true;
-        } else {
-            return false;
-        }
+        return getLastName().isEmpty();
     }
 
-    public String  getFirstName(){
-        String a = firstNameField.getAttribute("value");
-        return a;
+    public String getFirstName() {
+        return firstNameField.getAttribute("value");
     }
 
-    public String getLastName(){
+    public String getLastName() {
         return lastNameField.getText();
     }
 
-    public String setFirstName(String firstName){
-        if (isFirstNameFieldEmpty()==false){
+    public String setFirstName(String firstName) {
+        if (!isFirstNameFieldEmpty()) {
             firstNameField.clear();
         }
-       firstNameField.sendKeys(firstName);
+        firstNameField.sendKeys(firstName);
         return firstName;
     }
 
-
-
-    public void setLastName(){
-        if (isLastNameFieldEmpty()==false){
+    public void setLastName() {
+        if (isLastNameFieldEmpty() == false) {
             lastNameField.clear();
         }
         lastNameField.sendKeys("NewLastName");
     }
 
-    public void saveChanges(){
+    public void saveChanges() {
         submitButton.click();
         waitRefreshPage();
     }
 
-    public void refreshPage(){
+    public void refreshPage() {
         driver.navigate().refresh();
     }
 

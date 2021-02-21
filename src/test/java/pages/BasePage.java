@@ -18,10 +18,8 @@ public class BasePage {
     }
 
     public void openPage() {
-        log.error("+++++++OpenPage+++++++++");
         String webSiteUrl = PropertyManager.getInstance().getURL();
-        log.error("driver.getURL");
-        log.error("driver" + driver + "URL" + webSiteUrl);
+        log.info("Open WebsiteURL: " + webSiteUrl);
         driver.get(webSiteUrl);
     }
 
@@ -35,7 +33,6 @@ public class BasePage {
     }
 
     public WebDriverWait getWebDriverWait() {
-        WebDriverWait wait = new WebDriverWait(driver, 10);
-        return wait;
+        return new WebDriverWait(driver, 10);
     }
 }

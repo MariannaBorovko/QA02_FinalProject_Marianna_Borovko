@@ -6,6 +6,7 @@ import org.testng.annotations.Test;
 
 @Log4j2
 public class NewsTests extends BaseTest {
+
     @Test
     public void mainNewsTitle() {
         mainPage.openPage();
@@ -25,7 +26,7 @@ public class NewsTests extends BaseTest {
         mainPage.openPage();
         mainPage.openNewsPage();
         newsPage.scrollToNews();
-        newsPage.openFirstNews();
-        Assert.assertEquals(newsPage.getCurrentUrl(), newsPage.getLinkFirstNews());
+        newsPage.openNews(1);
+        Assert.assertEquals(newsPage.getCurrentUrl(), newsPage.getNewsLink(1));
     }
 }

@@ -34,7 +34,7 @@ public abstract class DriverManager {
 //    }
 
     public String getOS(){
-        return "Windows";
+        return "Linux";
     }
 
     public static String getBrowserName() {

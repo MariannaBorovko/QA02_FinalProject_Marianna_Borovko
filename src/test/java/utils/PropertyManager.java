@@ -7,12 +7,11 @@ public class PropertyManager {
 
     private static PropertyManager instance;
     private static final Object lock = new Object();
-    private static String propertyFilePath = System.getProperty("user.dir") +
-            "./src/test/resources/data.properties";
+    private String propertyFilePath = "./src/test/resources/data.properties";
     private static String url;
     private static String browser;
-    private static String email;
-    private static String password;
+    private  String email;
+    private  String password;
 
     public static PropertyManager getInstance() {
         synchronized (lock) {

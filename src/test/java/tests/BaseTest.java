@@ -7,8 +7,6 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Listeners;
 import pages.*;
 import utils.DriverManager;
-import utils.DriverManagerFactory;
-import utils.DriverTypes;
 import utils.Listener;
 
 @Log4j2
@@ -26,9 +24,9 @@ public class BaseTest {
     @BeforeMethod
     public void setUp() {
         basePage = new BasePage(driver);
-//        driverManager = basePage.getDriverManagerFactory();
-        driverManager = DriverManagerFactory.getManager(DriverTypes.CHROME);
-        if (driverManager.getOS().contains("Win")) {
+        driverManager = basePage.getDriverManagerFactory();
+        //driverManager = DriverManagerFactory.getManager(DriverTypes.CHROME);
+        if (driverManager.getOS("Linux").contains("Win")) {
             driver = driverManager.getDriverWindows();
         } else {
             driver = driverManager.getDriverLinux();

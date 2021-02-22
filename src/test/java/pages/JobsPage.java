@@ -58,6 +58,7 @@ public class JobsPage extends MainPage {
         waitForPremiumVacancy();
         log.info("Open details of premium vacancy");
         premiumVacancy.click();
+        waitForActiveVacancyTitle();
         waitForVacancyContainer();
     }
 
@@ -99,5 +100,8 @@ public class JobsPage extends MainPage {
 
     public void waitForVacancyContainer(){
         getWebDriverWait().until(ExpectedConditions.visibilityOf(vacancyContainerTitle));
+    }
+    public void waitForActiveVacancyTitle(){
+        getWebDriverWait().until(ExpectedConditions.visibilityOf(activeVacancyTitle));
     }
 }

@@ -36,8 +36,10 @@ public class JobsPage extends MainPage {
     }
 
     public void closeWishPopup() {
-        log.info("Close Wish Popup");
-        closeWishPopupButton.click();
+        if (isWishPopupPresent()) {
+            log.info("Close Wish Popup");
+            closeWishPopupButton.click();
+        }
     }
 
     public boolean isListOfChosenPositionsEmpty() {
@@ -63,5 +65,9 @@ public class JobsPage extends MainPage {
                 .getText();
         vacancyTitleText = vacancyTitleText.replace(priceFromTitle, "");
         return vacancyContainerTitle.getText().equals(vacancyTitleText.trim());
+    }
+
+    public boolean isWishPopupPresent() {
+        return closeWishPopupButton.isDisplayed();
     }
 }

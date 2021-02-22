@@ -74,7 +74,8 @@ public class JobsPage extends MainPage {
         log.error("vacancyTitleText = ["+ vacancyTitleText+"]");
         log.error("priceFromTitle = ["+ priceFromTitle+"]");
         vacancyTitleText = vacancyTitleText.replace(priceFromTitle, "");
-        log.error("newVacancyTitleText = ["+ vacancyTitleText+"]");
+        log.error("newVacancyTitleText = ["+ vacancyTitleText.trim()+"]");
+        log.error("vacancyContainerTitle = ["+ vacancyContainerTitle.getText()+"]");
         return vacancyContainerTitle.getText().equals(vacancyTitleText.trim());
     }
 
@@ -96,7 +97,6 @@ public class JobsPage extends MainPage {
     }
 
     public void waitForVacancyContainer(){
-        getWebDriverWait().until(ExpectedConditions.visibilityOf(vacancyContainer));
         getWebDriverWait().until(ExpectedConditions.visibilityOf(vacancyContainerTitle));
     }
 }

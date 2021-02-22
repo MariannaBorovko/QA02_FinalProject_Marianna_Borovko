@@ -31,6 +31,7 @@ public class NewsPage extends MainPage {
     }
 
     public boolean isNewsPresent() {
+        waitForLoadingNewsPage();
         log.info("Check if news present");
         return news.size() > 0;
     }

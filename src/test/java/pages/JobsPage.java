@@ -41,9 +41,10 @@ public class JobsPage extends MainPage {
     }
 
     public void closeWishPopup() {
-        isWishPopupPresent();
-        log.info("Close Wish Popup");
-        closeWishPopupButton.click();
+        if(isWishPopupPresent()){
+            log.info("Close Wish Popup");
+            closeWishPopupButton.click();
+        }
     }
 
     public boolean isListOfChosenPositionsEmpty() {
@@ -56,6 +57,7 @@ public class JobsPage extends MainPage {
         waitForPremiumVacancy();
         log.info("Open details of premium vacancy");
         premiumVacancy.click();
+        waitForVacancyContainer();
     }
 
     public boolean isVacancyContainerPresent() {
@@ -64,7 +66,6 @@ public class JobsPage extends MainPage {
     }
 
     public boolean isOpenedVacancyTitleIsCorrect() {
-        waitForVacancyContainer();
         log.info("Check title of active vacancy method is started");
         String vacancyTitleText = "Вакансия " + activeVacancyTitle.getText();
         String priceFromTitle = activeVacancyTitle
@@ -92,6 +93,7 @@ public class JobsPage extends MainPage {
     }
 
     public void waitForVacancyContainer(){
+        getWebDriverWait().until(ExpectedConditions.visibilityOf(vacancyContainer));
         getWebDriverWait().until(ExpectedConditions.visibilityOf(vacancyContainerTitle));
     }
 }

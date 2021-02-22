@@ -28,6 +28,8 @@ public class JobsPage extends MainPage {
     WebElement activeVacancyTitle;
     @FindBy(xpath = "//div[@class = 'wishes-popup__content']")
     WebElement wishPopup;
+    @FindBy(xpath = "//span[@class='vacancies-list__filter-tag__text']")
+    WebElement filterVacancyTitle;
 
     public JobsPage(WebDriver driver) {
         super(driver);
@@ -45,6 +47,7 @@ public class JobsPage extends MainPage {
     }
 
     public boolean isListOfChosenPositionsEmpty() {
+        waitForFilterAppears();
         log.info("Check list items present");
         return filterPositions.isEmpty();
     }
@@ -61,6 +64,7 @@ public class JobsPage extends MainPage {
     }
 
     public boolean isOpenedVacancyTitleIsCorrect() {
+        waitForVacancyContainer();
         log.info("Check title of active vacancy method is started");
         String vacancyTitleText = "Вакансия " + activeVacancyTitle.getText();
         String priceFromTitle = activeVacancyTitle
@@ -81,5 +85,13 @@ public class JobsPage extends MainPage {
 
     public void waitForPremiumVacancy(){
         getWebDriverWait().until(ExpectedConditions.visibilityOf(premiumVacancy));
+    }
+
+    public void waitForFilterAppears(){
+        getWebDriverWait().until(ExpectedConditions.visibilityOf(filterVacancyTitle));
+    }
+
+    public void waitForVacancyContainer(){
+        getWebDriverWait().until(ExpectedConditions.visibilityOf(vacancyContainer));
     }
 }

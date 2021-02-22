@@ -7,6 +7,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Locatable;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import java.util.List;
 
@@ -16,17 +17,21 @@ public class NewsPage extends MainPage {
     WebElement articleTitle;
     @FindBy(xpath = "//div[@class='card card_media']")
     List<WebElement> news;
+    @FindBy(xpath = "//div[@class='cards-group cards-group_list']")
+    WebElement newsContainer;
 
     public NewsPage(WebDriver driver) {
         super(driver);
     }
 
     public String getArticleTitle() {
+        waitForLoadingArticlePage();
         log.info("Get Article Title");
         return articleTitle.getText();
     }
 
     public boolean isNewsPresent() {
+        waitForLoadingNewsPage();
         log.info("Check if news present");
         return news.size() > 0;
     }
@@ -48,5 +53,12 @@ public class NewsPage extends MainPage {
         Locatable firstNews = (Locatable) driver.findElement(By.xpath("//div[@class='card card_media']"));
         int y = firstNews.getCoordinates().onPage().getY();
         ((JavascriptExecutor) driver).executeScript("window.scrollBy(0," + y + ");");
+    }
+    public void waitForLoadingNewsPage(){
+        getWebDriverWait().until(ExpectedConditions.visibilityOf(newsContainer));
+    }
+
+    public void waitForLoadingArticlePage(){
+        getWebDriverWait().until(ExpectedConditions.visibilityOf(articleTitle));
     }
 }

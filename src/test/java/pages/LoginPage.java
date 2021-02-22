@@ -5,6 +5,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import utils.PropertyManager;
 
 import java.util.List;
@@ -17,12 +18,15 @@ public class LoginPage extends MainPage {
     WebElement passwordField;
     @FindBy(xpath = "//span[text()='Войти']")
     WebElement submitButton;
+    @FindBy(xpath = "//div[@class='auth-page']")
+    WebElement authContainer;
 
     public LoginPage(WebDriver driver) {
         super(driver);
     }
 
     public void enterEmail() {
+        waitForAuthContainer();
         log.info("Fill email field with valid data");
         String email = PropertyManager.getInstance().getEmail();
         emailField.sendKeys(email);
@@ -52,5 +56,9 @@ public class LoginPage extends MainPage {
         enterEmail();
         enterPassword();
         clickSubmitButton();
+    }
+
+    public void waitForAuthContainer(){
+        getWebDriverWait().until(ExpectedConditions.visibilityOf(authContainer));
     }
 }

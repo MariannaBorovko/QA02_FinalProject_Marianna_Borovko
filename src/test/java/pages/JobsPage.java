@@ -25,6 +25,8 @@ public class JobsPage extends MainPage {
     @FindBy(xpath = "//div[@class ='vacancies-list-item premium-vacancy vacancies-list-item--active']"
             + "//div[@class='premium-vacancy__title']")
     WebElement activeVacancyTitle;
+    @FindBy (xpath = "//div[@class = 'wishes-popup__content']")
+    List<WebElement> wishPopup;
 
     public JobsPage(WebDriver driver) {
         super(driver);
@@ -68,6 +70,6 @@ public class JobsPage extends MainPage {
     }
 
     public boolean isWishPopupPresent() {
-        return closeWishPopupButton.isDisplayed();
+        return wishPopup.size()>0;
     }
 }

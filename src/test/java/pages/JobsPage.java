@@ -45,6 +45,7 @@ public class JobsPage extends MainPage {
             log.info("Close Wish Popup");
             closeWishPopupButton.click();
         }
+        waitForActiveVacancyTitle();
     }
 
     public boolean isListOfChosenPositionsEmpty() {
@@ -98,5 +99,9 @@ public class JobsPage extends MainPage {
 
     public void waitForVacancyContainer(){
         getWebDriverWait().until(ExpectedConditions.visibilityOf(vacancyContainerTitle));
+    }
+
+    public void waitForActiveVacancyTitle(){
+        getWebDriverWait().until(ExpectedConditions.visibilityOf(activeVacancyTitle));
     }
 }

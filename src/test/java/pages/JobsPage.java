@@ -44,7 +44,7 @@ public class JobsPage extends MainPage {
             log.info("Close Wish Popup");
             closeWishPopupButton.click();
         }
-       waitForPremiumVacancy();
+        waitForVacancyContainer();
     }
 
     public boolean isListOfChosenPositionsEmpty() {
@@ -65,7 +65,7 @@ public class JobsPage extends MainPage {
     }
 
     public boolean isOpenedVacancyTitleIsCorrect() {
-        waitForVacancyContainer();
+        waitForPremiumVacancy();
         log.info("Check title of active vacancy method is started");
         String vacancyTitleText = "Вакансия " + activeVacancyTitle.getText();
         String priceFromTitle = activeVacancyTitle

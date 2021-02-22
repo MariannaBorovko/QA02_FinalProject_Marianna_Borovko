@@ -92,6 +92,6 @@ public class JobsPage extends MainPage {
     }
 
     public void waitForVacancyContainer(){
-        getWebDriverWait().until(ExpectedConditions.visibilityOf(vacancyContainer));
+        getWebDriverWait().until(ExpectedConditions.visibilityOf(vacancyContainerTitle));
     }
 }

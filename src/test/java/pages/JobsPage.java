@@ -43,7 +43,7 @@ public class JobsPage extends MainPage {
     }
 
     public void closeWishPopup() {
-        if(isWishPopupPresent()){
+        if (isWishPopupPresent()) {
             log.info("Close Wish Popup");
             closeWishPopupButton.click();
         }
@@ -57,12 +57,12 @@ public class JobsPage extends MainPage {
 
     public void openPremiumVacancy(int premiumVacancyNumber) {
         log.info("Open details of premium vacancy");
-        premiumVacancy.get(premiumVacancyNumber-1).click();
+        premiumVacancy.get(premiumVacancyNumber - 1).click();
         waitForVacancyContainer();
     }
 
-    public String getActiveVacancyTitle(){
-        log.error("getActiveVacancyTitle = " +activeVacancyTitle.getText());
+    public String getActiveVacancyTitle() {
+        log.error("getActiveVacancyTitle = " + activeVacancyTitle.getText());
         return activeVacancyTitle.getText();
     }
 
@@ -77,11 +77,11 @@ public class JobsPage extends MainPage {
         String priceFromTitle = activeVacancyTitle
                 .findElement(By.xpath("//span[@class='premium-vacancy__label']"))
                 .getText();
-        log.error("vacancyTitleText = ["+ vacancyTitleText+"]");
-        log.error("priceFromTitle = ["+ priceFromTitle+"]");
+        log.error("vacancyTitleText = [" + vacancyTitleText + "]");
+        log.error("priceFromTitle = [" + priceFromTitle + "]");
         vacancyTitleText = vacancyTitleText.replace(priceFromTitle, "");
-        log.error("newVacancyTitleText = ["+ vacancyTitleText.trim()+"]");
-        log.error("vacancyContainerTitle = ["+ vacancyContainerTitle.getText()+"]");
+        log.error("newVacancyTitleText = [" + vacancyTitleText.trim() + "]");
+        log.error("vacancyContainerTitle = [" + vacancyContainerTitle.getText() + "]");
         return vacancyContainerTitle.getText().equals(vacancyTitleText.trim());
     }
 
@@ -94,15 +94,15 @@ public class JobsPage extends MainPage {
         return wishPopup.isDisplayed();
     }
 
-    public void waitForVacanciesList(){
+    public void waitForVacanciesList() {
         getWebDriverWait().until(ExpectedConditions.visibilityOf(vacanciesList));
     }
 
-    public void waitForFilterAppears(){
+    public void waitForFilterAppears() {
         getWebDriverWait().until(ExpectedConditions.visibilityOf(filterVacancyTitle));
     }
 
-    public void waitForVacancyContainer(){
+    public void waitForVacancyContainer() {
         getWebDriverWait().until(ExpectedConditions.visibilityOf(vacancyContainerTitle));
     }
 }

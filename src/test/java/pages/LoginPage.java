@@ -57,11 +57,11 @@ public class LoginPage extends MainPage {
         clickSubmitButton();
     }
 
-    public void waitForAuthContainer(){
+    public void waitForAuthContainer() {
         getWebDriverWait().until(ExpectedConditions.visibilityOf(authContainer));
     }
 
-    public void waitForAuth(){
+    public void waitForAuth() {
         getWebDriverWait().until(ExpectedConditions.visibilityOf(userProfileButton));
     }
 }

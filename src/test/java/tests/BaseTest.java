@@ -25,7 +25,6 @@ public class BaseTest {
     public void setUp() {
         basePage = new BasePage(driver);
         driverManager = basePage.getDriverManagerFactory();
-        //driverManager = DriverManagerFactory.getManager(DriverTypes.CHROME);
         if (driverManager.getOS("Lin").contains("Win")) {
             driver = driverManager.getDriverWindows();
         } else {

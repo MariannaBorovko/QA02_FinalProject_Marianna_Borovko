@@ -55,11 +55,12 @@ public class NewsPage extends MainPage {
         int y = firstNews.getCoordinates().onPage().getY();
         ((JavascriptExecutor) driver).executeScript("window.scrollBy(0," + y + ");");
     }
-    public void waitForLoadingNewsPage(){
+
+    public void waitForLoadingNewsPage() {
         getWebDriverWait().until(ExpectedConditions.visibilityOf(newsContainer));
     }
 
-    public void waitForLoadingArticlePage(){
+    public void waitForLoadingArticlePage() {
         getWebDriverWait().until(ExpectedConditions.visibilityOf(articleTitle));
     }
 }

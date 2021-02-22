@@ -18,7 +18,7 @@ public class JobsPage extends MainPage {
     @FindBy(xpath = "//span[@class='vacancies-list__filter-tag__text']")
     List<WebElement> filterPositions;
     @FindBy(xpath = "//div[@class ='vacancies-list-item premium-vacancy']")
-    WebElement premiumVacancy;
+    List<WebElement> premiumVacancy;
     @FindBy(xpath = "//div[@class ='vacancy__container']")
     WebElement vacancyContainer;
     @FindBy(xpath = "//div[@class ='vacancy__header__name']")
@@ -29,6 +29,8 @@ public class JobsPage extends MainPage {
     WebElement wishPopup;
     @FindBy(xpath = "//span[@class='vacancies-list__filter-tag__text']")
     WebElement filterVacancyTitle;
+    @FindBy(xpath = "//div[@class ='vacancies-list__body js-vacancies-list__body']")
+    WebElement vacanciesList;
 
     public JobsPage(WebDriver driver) {
         super(driver);
@@ -37,6 +39,7 @@ public class JobsPage extends MainPage {
     public void chooseQAManualPosition() {
         log.info("Choose QA manual position and click");
         qaManualPositionButton.click();
+        waitForFilterAppears();
     }
 
     public void closeWishPopup() {
@@ -44,19 +47,23 @@ public class JobsPage extends MainPage {
             log.info("Close Wish Popup");
             closeWishPopupButton.click();
         }
+        waitForVacanciesList();
     }
 
     public boolean isListOfChosenPositionsEmpty() {
-        waitForFilterAppears();
         log.info("Check list items present");
         return filterPositions.isEmpty();
     }
 
-    public void openPremiumVacancy() {
-        waitForPremiumVacancy();
+    public void openPremiumVacancy(int premiumVacancyNumber) {
         log.info("Open details of premium vacancy");
-        premiumVacancy.click();
+        premiumVacancy.get(premiumVacancyNumber-1).click();
         waitForVacancyContainer();
+    }
+
+    public String getActiveVacancyTitle(){
+        log.error("getActiveVacancyTitle = " +activeVacancyTitle.getText());
+        return activeVacancyTitle.getText();
     }
 
     public boolean isVacancyContainerPresent() {
@@ -65,9 +72,8 @@ public class JobsPage extends MainPage {
     }
 
     public boolean isOpenedVacancyTitleIsCorrect() {
-        waitForActiveVacancyTitle();
         log.info("Check title of active vacancy method is started");
-        String vacancyTitleText = "Вакансия " + activeVacancyTitle.getText();
+        String vacancyTitleText = "Вакансия " + getActiveVacancyTitle();
         String priceFromTitle = activeVacancyTitle
                 .findElement(By.xpath("//span[@class='premium-vacancy__label']"))
                 .getText();
@@ -88,8 +94,8 @@ public class JobsPage extends MainPage {
         return wishPopup.isDisplayed();
     }
 
-    public void waitForPremiumVacancy(){
-        getWebDriverWait().until(ExpectedConditions.visibilityOf(premiumVacancy));
+    public void waitForVacanciesList(){
+        getWebDriverWait().until(ExpectedConditions.visibilityOf(vacanciesList));
     }
 
     public void waitForFilterAppears(){
@@ -98,8 +104,5 @@ public class JobsPage extends MainPage {
 
     public void waitForVacancyContainer(){
         getWebDriverWait().until(ExpectedConditions.visibilityOf(vacancyContainerTitle));
-    }
-    public void waitForActiveVacancyTitle(){
-        getWebDriverWait().until(ExpectedConditions.visibilityOf(activeVacancyTitle));
     }
 }

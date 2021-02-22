@@ -19,7 +19,7 @@ public class JobsTests extends BaseTest {
         mainPage.openPage();
         mainPage.openJobsPage();
         jobsPage.closeWishPopup();
-        jobsPage.openPremiumVacancy();
+        jobsPage.openPremiumVacancy(1);
         Assert.assertTrue(jobsPage.isVacancyContainerPresent());
     }
 
@@ -28,7 +28,7 @@ public class JobsTests extends BaseTest {
         mainPage.openPage();
         mainPage.openJobsPage();
         jobsPage.closeWishPopup();
-        jobsPage.openPremiumVacancy();
+        jobsPage.openPremiumVacancy(1);
         Assert.assertTrue(jobsPage.isOpenedVacancyTitleIsCorrect());
     }
 }

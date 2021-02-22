@@ -23,8 +23,7 @@ public class JobsPage extends MainPage {
     WebElement vacancyContainer;
     @FindBy(xpath = "//div[@class ='vacancy__header__name']")
     WebElement vacancyContainerTitle;
-    @FindBy(xpath = "//div[@class ='vacancies-list-item premium-vacancy vacancies-list-item--active']"
-            + "//div[@class='premium-vacancy__title']")
+    @FindBy(xpath = "//div[@class ='vacancies-list-item premium-vacancy vacancies-list-item--active']//div[@class='premium-vacancy__title']")
     WebElement activeVacancyTitle;
     @FindBy(xpath = "//div[@class = 'wishes-popup__content']")
     WebElement wishPopup;
@@ -66,7 +65,6 @@ public class JobsPage extends MainPage {
     }
 
     public boolean isOpenedVacancyTitleIsCorrect() {
-        waitForActiveVacancyTitle();
         waitForVacancyContainer();
         log.info("Check title of active vacancy method is started");
         String vacancyTitleText = "Вакансия " + activeVacancyTitle.getText();

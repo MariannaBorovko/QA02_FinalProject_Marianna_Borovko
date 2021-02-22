@@ -1,14 +1,11 @@
 package pages;
 
 import lombok.extern.log4j.Log4j2;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import utils.PropertyManager;
-
-import java.util.List;
 
 @Log4j2
 public class LoginPage extends MainPage {
@@ -20,6 +17,8 @@ public class LoginPage extends MainPage {
     WebElement submitButton;
     @FindBy(xpath = "//div[@class='auth-page']")
     WebElement authContainer;
+    @FindBy(xpath = "//div[@class='navbar__user']")
+    WebElement userProfileButton;
 
     public LoginPage(WebDriver driver) {
         super(driver);
@@ -41,12 +40,12 @@ public class LoginPage extends MainPage {
     public void clickSubmitButton() {
         log.info("Click submit button");
         submitButton.click();
+        waitForAuth();
     }
 
     public boolean isUserLoggedSuccessfully() {
         log.info("Login with valid data");
-        List<WebElement> navbarUser = driver.findElements(By.xpath("//div[@class='navbar__user']"));
-        return navbarUser.size() > 0;
+        return userProfileButton.isDisplayed();
     }
 
     public void login() {
@@ -60,5 +59,9 @@ public class LoginPage extends MainPage {
 
     public void waitForAuthContainer(){
         getWebDriverWait().until(ExpectedConditions.visibilityOf(authContainer));
+    }
+
+    public void waitForAuth(){
+        getWebDriverWait().until(ExpectedConditions.visibilityOf(userProfileButton));
     }
 }

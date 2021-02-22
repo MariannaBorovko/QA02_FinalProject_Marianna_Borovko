@@ -5,6 +5,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import java.util.List;
 
@@ -25,8 +26,8 @@ public class JobsPage extends MainPage {
     @FindBy(xpath = "//div[@class ='vacancies-list-item premium-vacancy vacancies-list-item--active']"
             + "//div[@class='premium-vacancy__title']")
     WebElement activeVacancyTitle;
-    @FindBy (xpath = "//div[@class = 'wishes-popup__content']")
-    List<WebElement> wishPopup;
+    @FindBy(xpath = "//div[@class = 'wishes-popup__content']")
+    WebElement wishPopup;
 
     public JobsPage(WebDriver driver) {
         super(driver);
@@ -38,10 +39,9 @@ public class JobsPage extends MainPage {
     }
 
     public void closeWishPopup() {
-        if (isWishPopupPresent()) {
-            log.info("Close Wish Popup");
-            closeWishPopupButton.click();
-        }
+        isWishPopupPresent();
+        log.info("Close Wish Popup");
+        closeWishPopupButton.click();
     }
 
     public boolean isListOfChosenPositionsEmpty() {
@@ -50,6 +50,7 @@ public class JobsPage extends MainPage {
     }
 
     public void openPremiumVacancy() {
+        waitForPremiumVacancy();
         log.info("Open details of premium vacancy");
         premiumVacancy.click();
     }
@@ -69,7 +70,16 @@ public class JobsPage extends MainPage {
         return vacancyContainerTitle.getText().equals(vacancyTitleText.trim());
     }
 
+    public void waitForWishPopup() {
+        getWebDriverWait().until(ExpectedConditions.visibilityOf(wishPopup));
+    }
+
     public boolean isWishPopupPresent() {
-        return wishPopup.size()>0;
+        waitForWishPopup();
+        return wishPopup.isDisplayed();
+    }
+
+    public void waitForPremiumVacancy(){
+        getWebDriverWait().until(ExpectedConditions.visibilityOf(premiumVacancy));
     }
 }

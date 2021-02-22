@@ -71,7 +71,10 @@ public class JobsPage extends MainPage {
         String priceFromTitle = activeVacancyTitle
                 .findElement(By.xpath("//span[@class='premium-vacancy__label']"))
                 .getText();
+        log.error("vacancyTitleText = ["+ vacancyTitleText+"]");
+        log.error("priceFromTitle = ["+ priceFromTitle+"]");
         vacancyTitleText = vacancyTitleText.replace(priceFromTitle, "");
+        log.error("newVacancyTitleText = ["+ vacancyTitleText+"]");
         return vacancyContainerTitle.getText().equals(vacancyTitleText.trim());
     }
 

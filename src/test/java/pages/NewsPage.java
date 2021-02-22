@@ -31,7 +31,6 @@ public class NewsPage extends MainPage {
     }
 
     public boolean isNewsPresent() {
-        waitForLoadingNewsPage();
         log.info("Check if news present");
         return news.size() > 0;
     }
@@ -49,6 +48,7 @@ public class NewsPage extends MainPage {
     }
 
     public void scrollToNews() {
+        waitForLoadingNewsPage();
         log.info("Scroll to news");
         Locatable firstNews = (Locatable) driver.findElement(By.xpath("//div[@class='card card_media']"));
         int y = firstNews.getCoordinates().onPage().getY();

@@ -5,6 +5,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+import java.util.List;
+
 
 @Log4j2
 public class UserProfilePage extends MainPage {
@@ -18,6 +20,8 @@ public class UserProfilePage extends MainPage {
     WebElement submitButton;
     @FindBy(xpath = "//div[@class='spinner']")
     WebElement spinner;
+    @FindBy(xpath = "//span[@class ='label__text']")
+    List<WebElement> fieldTitles;
 
     public UserProfilePage(WebDriver driver) {
         super(driver);
@@ -27,7 +31,14 @@ public class UserProfilePage extends MainPage {
         log.info("Logout button click");
         logoutButton.click();
     }
+}
 
+//    public boolean isFieldPresent(String fieldName) {
+//        for (WebElement fieldTitle : fieldTitles) {
+//            return fieldTitle.getText().contains(fieldName);
+//            break;
+//        }
+//}
 //    public boolean isFirstNameFieldEmpty() {
 //        return getFirstName().isEmpty();
 //    }
@@ -71,4 +82,3 @@ public class UserProfilePage extends MainPage {
 //    public void waitRefreshPage() {
 //        getWebDriverWait().until(ExpectedConditions.invisibilityOf(spinner));
 //    }
-}

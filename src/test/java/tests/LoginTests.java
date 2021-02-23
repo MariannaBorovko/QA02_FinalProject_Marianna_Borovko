@@ -12,6 +12,7 @@ public class LoginTests extends BaseTest {
         loginPage.enterEmail();
         loginPage.enterPassword();
         loginPage.clickSubmitButton();
-        Assert.assertTrue(loginPage.isUserLoggedSuccessfully(), "Incorrect credentials!");
+        Assert.assertTrue(loginPage.isUserLoggedSuccessfully(),
+                "Incorrect credentials!");
     }
 }

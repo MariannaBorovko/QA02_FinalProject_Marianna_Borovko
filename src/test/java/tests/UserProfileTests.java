@@ -16,6 +16,12 @@ public class UserProfileTests extends BaseTest {
     }
 
 //    @Test
+//    public void cityFieldPresentFailTest(){
+//        loginPage.login();
+//        mainPage.openUserProfile();
+//        Assert.assertTrue(userProfilePage.isFieldPresent("Город"));
+
+//    @Test
 //    public void changeFistName(){
 //        loginPage.login();
 //        mainPage.openUserProfile();

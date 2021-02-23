@@ -25,7 +25,7 @@ public class BaseTest {
     public void setUp() {
         basePage = new BasePage(driver);
         driverManager = basePage.getDriverManagerFactory();
-        if (driverManager.getOS("Lin").contains("Win")) {
+        if (driverManager.getOS().contains("Win")) {
             driver = driverManager.getDriverWindows();
         } else {
             driver = driverManager.getDriverLinux();

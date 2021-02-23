@@ -5,7 +5,9 @@ import org.openqa.selenium.WebDriver;
 public abstract class DriverManager {
 
     protected WebDriver driver;
+
     protected abstract void createDriverWindows();
+
     protected abstract void createDriverLinux();
 
     public void quitDriver() {
@@ -29,13 +31,17 @@ public abstract class DriverManager {
         return driver;
     }
 
-//    public String getOS() {
-//        return System.getenv("OS");
-//    }
-
-    public String getOS(String osName){
-        return osName;
+    public String getOS() {
+        if (System.getenv("OS") == null) {
+            return "Linux";
+        } else {
+            return System.getenv("OS");
+        }
     }
+
+//    public String getOS(String osName){
+//        return osName;
+//    }
 
     public static String getBrowserName() {
         return PropertyManager.getInstance().getBrowser();

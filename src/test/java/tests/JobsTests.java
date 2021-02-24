@@ -23,7 +23,7 @@ public class JobsTests extends BaseTest {
         Assert.assertTrue(jobsPage.isVacancyContainerPresent());
     }
 
-    @Test
+//    @Test
     public void premiumVacancyTitle() {
         mainPage.openPage();
         mainPage.openJobsPage();

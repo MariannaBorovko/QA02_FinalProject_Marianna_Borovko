@@ -17,7 +17,7 @@ public class UserProfileTests extends BaseTest {
     public void cityFieldPresentFailTest() {
         loginPage.login();
         mainPage.openUserProfile();
-        Assert.assertTrue(userProfilePage.isFieldPresent("Юзернейм"));
+        Assert.assertFalse(userProfilePage.isFieldPresent("Город"));
     }
 
     @Test

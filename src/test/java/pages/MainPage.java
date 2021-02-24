@@ -2,10 +2,12 @@ package pages;
 
 import io.qameta.allure.Step;
 import lombok.extern.log4j.Log4j2;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 @Log4j2
 public class MainPage extends BasePage {
@@ -46,6 +48,7 @@ public class MainPage extends BasePage {
     public void openUserProfile() {
         log.info("Click user profile button");
         userProfileButton.click();
+        waitForLoadingUserProfilePage();
     }
 
     public void openNewsPage() {
@@ -87,5 +90,9 @@ public class MainPage extends BasePage {
         log.info("Get main news title");
         openPage();
         return mainNewsTitle.getText();
+    }
+
+    public void waitForLoadingUserProfilePage(){
+        getWebDriverWait().until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//div[@class='container']")));
     }
 }

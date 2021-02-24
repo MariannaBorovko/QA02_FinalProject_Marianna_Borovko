@@ -13,11 +13,12 @@ public class UserProfileTests extends BaseTest {
         Assert.assertEquals(userProfilePage.getCurrentUrl(), "https://id.dev.by/@/hello");
     }
 
-//    @Test
-//    public void cityFieldPresentFailTest(){
-//        loginPage.login();
-//        mainPage.openUserProfile();
-//        Assert.assertTrue(userProfilePage.isFieldPresent("Город"));
+    @Test
+    public void cityFieldPresentFailTest() {
+        loginPage.login();
+        mainPage.openUserProfile();
+        Assert.assertTrue(userProfilePage.isFieldPresent("Юзернейм"));
+    }
 
     @Test
     public void changeFistName() {

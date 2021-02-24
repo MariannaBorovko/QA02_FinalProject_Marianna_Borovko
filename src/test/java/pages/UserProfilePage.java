@@ -1,6 +1,7 @@
 package pages;
 
 import lombok.extern.log4j.Log4j2;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -85,5 +86,6 @@ public class UserProfilePage extends MainPage {
         if (spinner.isDisplayed()) {
             getWebDriverWait().until(ExpectedConditions.invisibilityOf(spinner));
         }
+        getWebDriverWait().until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//div[@class='container']")));
     }
 }

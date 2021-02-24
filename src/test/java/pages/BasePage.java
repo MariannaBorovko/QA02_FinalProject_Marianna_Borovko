@@ -28,7 +28,8 @@ public class BasePage {
     }
 
     public DriverManager getDriverManagerFactory() {
-        driverManager = DriverManagerFactory.getManager(DriverTypes.getTypeByStringValue(DriverManager.getBrowserName()));
+        driverManager = DriverManagerFactory
+                .getManager(DriverTypes.getTypeByStringValue(DriverManager.getBrowserName()));
         return driverManager;
     }
 

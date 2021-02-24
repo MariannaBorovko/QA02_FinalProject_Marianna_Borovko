@@ -83,9 +83,9 @@ public class UserProfilePage extends MainPage {
 //    }
 //
     public void waitRefreshPage() {
-        if (spinner.isDisplayed()) {
-            getWebDriverWait().until(ExpectedConditions.invisibilityOf(spinner));
-        }
+//        if (spinner.isDisplayed()) {
+//            getWebDriverWait().until(ExpectedConditions.invisibilityOf(spinner));
+//        }
         getWebDriverWait().until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//div[@class='container']")));
     }
 }

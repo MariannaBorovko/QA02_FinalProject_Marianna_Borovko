@@ -1,5 +1,6 @@
 package pages;
 
+import io.qameta.allure.Step;
 import utils.DriverManager;
 import utils.DriverManagerFactory;
 import utils.DriverTypes;
@@ -17,6 +18,7 @@ public class BasePage {
         this.driver = driver;
     }
 
+    @Step ("Open WebSite")
     public void openPage() {
         String webSiteUrl = PropertyManager.getInstance().getURL();
         log.info("Open WebsiteURL: " + webSiteUrl);

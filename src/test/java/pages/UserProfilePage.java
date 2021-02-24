@@ -4,6 +4,7 @@ import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import java.util.List;
 
@@ -31,54 +32,56 @@ public class UserProfilePage extends MainPage {
         log.info("Logout button click");
         logoutButton.click();
     }
-}
 
-//    public boolean isFieldPresent(String fieldName) {
+
+    //    public boolean isFieldPresent(String fieldName) {
 //        for (WebElement fieldTitle : fieldTitles) {
 //            return fieldTitle.getText().contains(fieldName);
 //            break;
 //        }
 //}
-//    public boolean isFirstNameFieldEmpty() {
-//        return getFirstName().isEmpty();
-//    }
-//
-//    public boolean isLastNameFieldEmpty() {
-//        return getLastName().isEmpty();
-//    }
+    public boolean isFirstNameFieldEmpty() {
+        return getFirstName().isEmpty();
+    }
 
-//    public String getFirstName() {
-//        return firstNameField.getAttribute("value");
-//    }
+    public boolean isLastNameFieldEmpty() {
+        return getLastName().isEmpty();
+    }
 
-//    public String getLastName() {
-//        return lastNameField.getText();
-//    }
+    public String getFirstName() {
+        return firstNameField.getAttribute("value");
+    }
 
-//    public String setFirstName(String firstName) {
-//        if (!isFirstNameFieldEmpty()) {
-//            firstNameField.clear();
-//        }
-//        firstNameField.sendKeys(firstName);
-//        return firstName;
-//    }
+    public String getLastName() {
+        return lastNameField.getText();
+    }
 
-//    public void setLastName() {
-//        if (isLastNameFieldEmpty() == false) {
-//            lastNameField.clear();
-//        }
-//        lastNameField.sendKeys("NewLastName");
-//    }
+    public String setFirstName(String firstName) {
+        if (!isFirstNameFieldEmpty()) {
+            firstNameField.clear();
+        }
+        firstNameField.sendKeys(firstName);
+        return firstName;
+    }
 
-//    public void saveChanges() {
-//        submitButton.click();
-//        waitRefreshPage();
-//    }
+    public void setLastName() {
+        if (isLastNameFieldEmpty() == false) {
+            lastNameField.clear();
+        }
+        lastNameField.sendKeys("NewLastName");
+    }
 
-//    public void refreshPage() {
+
+    public void saveChanges() {
+        submitButton.click();
+        waitRefreshPage();
+    }
+
+    //    public void refreshPage() {
 //        driver.navigate().refresh();
 //    }
 //
-//    public void waitRefreshPage() {
-//        getWebDriverWait().until(ExpectedConditions.invisibilityOf(spinner));
-//    }
+    public void waitRefreshPage() {
+        getWebDriverWait().until(ExpectedConditions.invisibilityOf(spinner));
+    }
+}

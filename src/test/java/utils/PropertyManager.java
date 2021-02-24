@@ -10,12 +10,12 @@ public class PropertyManager {
     private String propertyFilePath = "./src/test/resources/data.properties";
     private static String url;
     private static String browser;
-    private  String email;
-    private  String password;
+    private String email;
+    private String password;
 
     public static PropertyManager getInstance() {
         synchronized (lock) {
-        if (instance == null) {
+            if (instance == null) {
                 instance = new PropertyManager();
                 instance.loadData();
             }

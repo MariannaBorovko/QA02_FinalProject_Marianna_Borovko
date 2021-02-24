@@ -19,12 +19,12 @@ public class UserProfileTests extends BaseTest {
 //        mainPage.openUserProfile();
 //        Assert.assertTrue(userProfilePage.isFieldPresent("Город"));
 
-//    @Test
-//    public void changeFistName(){
-//        loginPage.login();
-//        mainPage.openUserProfile();
-//        userProfilePage.setFirstName("NameTest1");
-//        userProfilePage.saveChanges();
-//        Assert.assertEquals(userProfilePage.getFirstName(),"NameTest1");
-//    }
+    @Test
+    public void changeFistName() {
+        loginPage.login();
+        mainPage.openUserProfile();
+        userProfilePage.setFirstName("NameTest6");
+        userProfilePage.saveChanges();
+        Assert.assertEquals(userProfilePage.getFirstName(), "NameTest6");
+    }
 }

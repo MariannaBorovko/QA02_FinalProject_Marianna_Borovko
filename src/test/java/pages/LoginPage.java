@@ -1,5 +1,6 @@
 package pages;
 
+import io.qameta.allure.Step;
 import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -24,6 +25,7 @@ public class LoginPage extends MainPage {
         super(driver);
     }
 
+    @Step("Enter email")
     public void enterEmail() {
         waitForAuthContainer();
         log.info("Fill email field with valid data");
@@ -31,18 +33,21 @@ public class LoginPage extends MainPage {
         emailField.sendKeys(email);
     }
 
+    @Step("Enter password")
     public void enterPassword() {
         log.info("Fill password field with valid data");
         String password = PropertyManager.getInstance().getPassword();
         passwordField.sendKeys(password);
     }
 
+    @Step("Click submit button")
     public void clickSubmitButton() {
         log.info("Click submit button");
         submitButton.click();
         waitForAuth();
     }
 
+    @Step("Check if user is logged")
     public boolean isUserLoggedSuccessfully() {
         log.info("Login with valid data");
         return userProfileButton.isDisplayed();

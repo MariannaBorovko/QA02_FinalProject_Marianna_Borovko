@@ -1,5 +1,6 @@
 package pages;
 
+import io.qameta.allure.Step;
 import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -36,6 +37,7 @@ public class MainPage extends BasePage {
         PageFactory.initElements(driver, this);
     }
 
+    @Step("Open LoginPage")
     public void openLoginPage() {
         log.info("Click login button");
         loginPageButton.click();

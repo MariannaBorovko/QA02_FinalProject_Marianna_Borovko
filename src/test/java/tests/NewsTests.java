@@ -5,7 +5,7 @@ import org.testng.annotations.Test;
 
 public class NewsTests extends BaseTest {
 
-    //@Test
+    @Test
     public void mainNewsTitle() {
         mainPage.openPage();
         mainPage.openMainNews();
